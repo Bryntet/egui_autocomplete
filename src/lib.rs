@@ -159,8 +159,8 @@ where
             max_suggestions,
         );
 
-        let accepted_by_keyboard = ui.input_mut(|input| input.key_pressed(Key::Enter))
-            || ui.input_mut(|input| input.key_pressed(Key::Tab));
+        let accepted_by_keyboard = ui.input(|input| input.key_pressed(Key::Enter))
+            || ui.input(|input| input.key_pressed(Key::Tab));
         if let (Some(index), true) = (
             state.selected_index,
             ui.memory(|mem| mem.is_popup_open(id)) && accepted_by_keyboard,
